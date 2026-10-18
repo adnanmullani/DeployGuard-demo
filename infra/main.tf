@@ -5,7 +5,7 @@ resource "aws_db_instance" "main" {
   instance_class      = "db.t3.micro"
   publicly_accessible = false
   storage_encrypted   = true
-  tags                = { team = "platform" }
+  tags                = { team = "platform", env = "staging" }
 }
 
 resource "aws_security_group" "web" {
