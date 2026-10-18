@@ -10,7 +10,7 @@ Live demo of [DeployGuard](https://github.com/adnanmullani/DeployGuard), a GitHu
 The whole setup is one step in [.github/workflows/deployguard.yml](.github/workflows/deployguard.yml):
 
 ```yaml
-- uses: adnanmullani/DeployGuard@main
+- uses: adnanmullani/DeployGuard@v1
   with:
     api-key: ${{ secrets.GEMINI_API_KEY }}
 ```
