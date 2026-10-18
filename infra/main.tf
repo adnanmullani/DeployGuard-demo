@@ -3,8 +3,9 @@ resource "aws_db_instance" "main" {
   identifier          = "app-db"
   engine              = "postgres"
   instance_class      = "db.t3.micro"
-  publicly_accessible = false
-  storage_encrypted   = true
+  publicly_accessible = true
+  storage_encrypted   = false
+  tags                = { team = "platform" }
 }
 
 resource "aws_security_group" "web" {
@@ -15,5 +16,12 @@ resource "aws_security_group" "web" {
     to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["10.0.0.0/16"]
+  }
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
